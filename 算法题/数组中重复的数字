@@ -6,7 +6,7 @@ Input:
 Output:
 2
 解题思路
-要求时间复杂度 O(N)，空间复杂度 O(1)。因此不能使用排序的方法，也不能使用额外的标记数组。
+要求时间复杂度 O(N)，空间复杂度 O(1)。因此不能使用排序的方法，也不能使用额外的标记数组。就把值为i的数放到i位置上。
 int method(int[] sourceNums){
   for (int i = 0; i < sourceNums.length; i++) {
       int num = sourceNums[i];
