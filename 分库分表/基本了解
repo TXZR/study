@@ -22,15 +22,15 @@
 目前涉及到的十张表：
 						INVESTMENTS N -> 1 LOANS 
 						    1	               1
-						   /                  \
-						  V			               V
-						 N			                N  
-				COLLECTION_PLANS			REPAYMENT_PLANS
-					    1				               1
-					   /					              \
-					  V					                 V
-					 N					                  N																		
-			COLLECTION_RECORDS					REPAYMENT_RECORDS
+						   /                    \
+						  V			 V
+						 N			  N  
+				     COLLECTION_PLANS			REPAYMENT_PLANS
+					    1				        1
+					   /					 \
+					  V					  V
+					 N					   N																		
+			     COLLECTION_RECORDS				   REPAYMENT_RECORDS
 	下面四张表可以忽视，不用太在意
 	PLAN_MQ_CLIENT_MSG LOAN_SEQUENCE LOANS_INFO COLLECTION_RECORD_TRANSFER
 个人思路：
