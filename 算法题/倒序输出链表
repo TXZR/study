@@ -1,4 +1,4 @@
-    这里用随便用个list代替链表，思想就是递归实现，当前元素是否在最后一位，不在的话位置后移调用，在调用后输出当前元素。
+    这里用随便用个list代替链表，思想就是递归实现，当前元素是否在最后一位，不在的话位置后移调用，在调用后输出当前元素。更简单的使用栈 push pull
     
     public static LinkedList<Integer> list = new LinkedList<>();
 
