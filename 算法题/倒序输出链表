@@ -1,0 +1,28 @@
+    这里用随便用个list代替链表，思想就是递归实现，当前元素是否在最后一位，不在的话位置后移调用，在调用后输出当前元素。
+    
+    public static LinkedList<Integer> list = new LinkedList<>();
+
+    static {
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+    }
+
+
+
+    private static void print(LinkedList<Integer> list) {
+        if(list.size() == 1){
+            System.out.println(list.getLast());
+            return;
+        }
+        Integer i = list.remove(0);
+        print(list);
+        System.out.println(i);
+    }
+
+
+    public static void main(String[] args) {
+        print(list);
+    }
