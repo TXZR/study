@@ -1,3 +1,43 @@
 根据二叉树的前序遍历和中序遍历的结果，重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+前序：3 9 20 15 7
+中序：9 3 15 20 7
 
-解题思路：前序第一个数字为根节点，中序中这个数字左边的都是左子树，右边的都是右子树。
+解题思路：前序第一个数字是根节点，中序中在根节点左边的是左子树，右边的是右子数 依次类推
+
+private static final int[] QIAN = {1, 2, 4, 5, 3, 6, 7};
+    private static final int[] ZHONG = {4, 2, 5, 1, 6, 3, 7};
+    private static final Map<String, Integer> map = new HashMap();
+    private static final String keyStr = "%s-%s";
+
+
+    public static void main(String[] args) {
+        exec(0, QIAN.length - 1, 1, 1, 0);
+        map.forEach((k,v) -> {
+            System.out.println(k + " : " + v);
+        });
+    }
+
+    public static void exec(int left, int right, int level, int in, int genIndex) {
+        if(left == right) {
+            map.put(String.format(keyStr, level, in), ZHONG[left]);
+        } else {
+            int gen = QIAN[genIndex];
+            map.put(String.format(keyStr, level, in), gen);
+            int newGenIndex = findIndex(ZHONG, gen);
+            if (left <= newGenIndex - 1) {
+                exec(left, newGenIndex - 1,  level + 1, in * 2 - 1, genIndex + 1);
+            }
+            if(newGenIndex + 1 <= right) {
+                exec(newGenIndex + 1, right, level + 1, in * 2, genIndex + newGenIndex - left + 1);
+            }
+        }
+    }
+
+    public static int findIndex(int[] source, int value) {
+        for(int i = 0; i<source.length;  i++){
+            if(source[i] == value) {
+                return i;
+            }
+        }
+        return -1;
+    }
